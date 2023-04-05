@@ -6,16 +6,16 @@ public class Motociclisme extends Noticia {
 	
 	public Motociclisme(String titular, Redactor redactor, String equip) {
 		this.titular = titular;
-		this.text = text;
 		this.redactor = redactor;
 		this.equip = equip;
 	}
 	
+	@Override
 	int calcularPreuNoticia() {
 		
 		preu = 100;
 		
-		if(equip == "Honda" || equip == "Yamaha") {
+		if(equip.equals("Honda") || equip.equals("Yamaha")) {
 			preu += 50;
 		}
 		
@@ -23,11 +23,12 @@ public class Motociclisme extends Noticia {
 		
 	}
 	
-int calcularPuntuacioNoticia() {
+	@Override
+	int calcularPuntuacioNoticia() {
 		
 		puntuacio = 3;
 		
-		if(equip == "Honda" || equip == "Yamaha") {
+		if(equip.equals("Honda") || equip.equals("Yamaha")) {
 			puntuacio += 3;
 		}
 		

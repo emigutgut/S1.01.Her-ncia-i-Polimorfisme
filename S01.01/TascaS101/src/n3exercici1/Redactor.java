@@ -27,6 +27,6 @@ public class Redactor {
 	
 	public void setNom(String nouNom) {
 		nom = nouNom;
-	}	
+	}
 	
 }

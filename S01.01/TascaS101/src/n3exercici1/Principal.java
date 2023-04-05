@@ -61,7 +61,7 @@ public class Principal {
 				break;
 			case 6:
 				puntuacioNoticia = calcularPuntuacio();
-				System.out.println("La puntuació de la noticia es de " + puntuacioNoticia + "puntos.");
+				System.out.println("La puntuació de la noticia es de " + puntuacioNoticia + " puntos.");
 				menu();
 				break;
 			case 7:
@@ -75,8 +75,10 @@ public class Principal {
 	
 	public static void mostrarRedactor() {
 		for(int i=0; i<contadorRedactors; i++) {
+		
 			System.out.print(redactors[i].getNom() + ", ");
 			System.out.println(redactors[i].getDni());
+			
 		}
 	}
 	
@@ -100,11 +102,10 @@ public class Principal {
 		System.out.println("Introudeix el nom del redactor.");
 		DADES.nextLine();
 		nomRedactor = DADES.nextLine();
-		Redactor nouRedactors[] = new Redactor[50];
+		Redactor nouRedactors[] = new Redactor[contadorRedactors];
 		System.arraycopy(redactors, 0, nouRedactors, 0, contadorRedactors);
-		
 		for(int i=0; i<contadorRedactors; i++) {
-			if(redactors[i].getNom() == nomRedactor) {
+			if(redactors[i].getNom().equals(nomRedactor)) {
 				for(int j=0; j<i-1; j++) {
 					nouRedactors[j] = redactors[j];
 				}
@@ -117,34 +118,6 @@ public class Principal {
 		return nouRedactors;
 		
 	}
-	
-	/*public static Redactor seleccionarRedactor() {
-		
-		Redactor redactor=null;
-		int nombreRedactor;
-		
-		System.out.println("Indica el nombre del redactor:");
-		
-		for(int i=0; i<contadorRedactors; i++) {
-			
-			System.out.println(i + " .- " + redactors[i].getNom());
-			
-		}
-		
-		nombreRedactor = DADES.nextInt();
-		
-		for(int i=0; i<contadorRedactors; i++) {
-			if(i==nombreRedactor) {
-				
-				redactor = redactors[i];
-				return redactor;
-			}
-			
-		}
-		
-		return redactor;
-		
-	}*/
 	
 	public static Noticia introduirNoticia() {
 		
@@ -249,19 +222,19 @@ public class Principal {
 		String titularNoticia;
 		String nomRedactor;
 		System.out.println("Introudeix el titular de la notícia.");
-		System.out.println("Introudeix el nom del redactor.");
-		titularNoticia = DADES.nextLine();
 		DADES.nextLine();
+		titularNoticia = DADES.nextLine();
+		System.out.println("Introudeix el nom del redactor.");
 		nomRedactor = DADES.nextLine();
 		String redactorBuscat;
 		
 		System.arraycopy(noticies, 0, noticiesNou, 0, contadorNoticies);
 		
 		for(int i=0; i<contadorNoticies; i++) {
-			if(noticies[i].getTitular() == titularNoticia) {
+			if(noticies[i].getTitular().equals(titularNoticia)) {
 				Redactor redactor=noticies[i].redactor;
 				redactorBuscat = redactor.getNom();
-				if(nomRedactor == redactorBuscat) {
+				if(nomRedactor.equals(redactorBuscat)) {
 					for(int j=0; j<i-1; j++) {
 						noticiesNou[j] = noticies[j];
 					}
@@ -300,9 +273,10 @@ public class Principal {
 		
 		DADES.nextLine();
 		titularNoticia = DADES.nextLine();
-		
+				
 		for(int i=0; i<contadorNoticies; i++) {
-			if(noticies[i].getTitular() == titularNoticia) {
+			
+			if(noticies[i].getTitular().equals(titularNoticia)) {
 				puntuacioNoticia = noticies[i].calcularPuntuacioNoticia();
 				return puntuacioNoticia;
 			}
@@ -325,8 +299,8 @@ public class Principal {
 		titularNoticia = DADES.nextLine();
 		
 		for(int i=0; i<contadorNoticies; i++) {
-			if(noticies[i].getTitular() == titularNoticia) {
-				preuNoticia = noticies[i].calcularPuntuacioNoticia();
+			if(noticies[i].getTitular().equals(titularNoticia)) {
+				preuNoticia = noticies[i].calcularPreuNoticia();
 				return preuNoticia;
 			}
 		}

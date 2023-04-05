@@ -12,11 +12,12 @@ public class Tenis extends Noticia {
 		this.tenista = tenista;
 	}
 	
+	@Override
 	int calcularPreuNoticia() {
 		
 		preu = 150;
 		
-		if(tenista == "Federer" || tenista == "Nadal" || tenista == "Djokovic") {
+		if(tenista.equals("Federer") || tenista.equals("Nadal") || tenista.equals("Djokovic")) {
 			
 			preu += 100;
 			
@@ -26,11 +27,12 @@ public class Tenis extends Noticia {
 		
 	}
 	
+	@Override
 	int calcularPuntuacioNoticia() {
 		
 		puntuacio = 4;
 		
-		if(tenista == "Federer" || tenista == "Nadal" || tenista == "Djokovic"){
+		if(tenista.equals("Federer") || tenista.equals("Nadal") || tenista.equals("Djokovic")) {
 			puntuacio += 3;
 		}
 		

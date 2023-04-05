@@ -12,15 +12,16 @@ public class Basquet extends Noticia{
 		this.club = club;
 	}
 	
+	@Override
 	int calcularPreuNoticia() {
 		
 		preu = 250;
 		
-		if(competicio == "Eurolliga") {
+		if(competicio.equals("Eurolliga")) {
 			preu += 75;
 		}
 		
-		if(club == "Barça" || club == "Madrid") {
+		if(club.equals("Barça") || club.equals("Madrid")) {
 			preu += 75;
 		}
 		
@@ -28,17 +29,18 @@ public class Basquet extends Noticia{
 		
 	}
 	
+	@Override
 	int calcularPuntuacioNoticia() {
 		
 		puntuacio = 4;
 		
-		if(competicio == "Eurolliga") {
+		if(competicio.equals("Eurolliga")) {
 			puntuacio += 3;
-		}else if(competicio == "ACB") {
+		}else if(competicio.equals("ACB")) {
 			puntuacio += 2;
 		}
 		
-		if(club == "Barça" || club == "Madrid") {
+		if(club.equals("Barça") || club.equals("Madrid")) {
 			puntuacio += 1;
 		}
 		

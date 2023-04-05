@@ -10,11 +10,12 @@ public class F1 extends Noticia {
 		this.escuderia = escuderia;
 	}
 	
+	@Override
 	int calcularPreuNoticia() {
 		
 		preu = 100;
 		
-		if(escuderia == "Ferrari" || escuderia == "Mercedes") {
+		if(escuderia.equals("Ferrari") || escuderia.equals("Mercedes")) {
 			preu += 50;
 		}
 		
@@ -22,16 +23,29 @@ public class F1 extends Noticia {
 		
 	}
 	
-int calcularPuntuacioNoticia() {
+	@Override
+	int calcularPuntuacioNoticia() {
 		
 		puntuacio = 4;
 		
-		if(escuderia == "Ferrari" || escuderia == "Mercedes") {
+		if(escuderia.equals("Ferrari") || escuderia.equals("Mercedes")) {
 			puntuacio += 2;
 		}
 		
 		return puntuacio;
 		
+	}
+	
+	public String getTitular() {
+		return this.titular;
+	}
+	
+	public Redactor getRedactor() {
+		return this.redactor;
+	}
+	
+	public String getNomRedactor() {
+		return redactor.getNom();
 	}
 
 }
